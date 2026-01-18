@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RicksProTouch - Premium Mobile Auto Detailing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -11,6 +11,26 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        html, body {
+  width: 100%;
+  overflow-x: hidden;   /* stops left/right scroll */
+  position: relative;
+  touch-action: pan-y;  /* allow vertical scroll only */
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -78,6 +98,7 @@
             text-decoration: none;
             transition: background 0.3s;
         }
+        
 
         .book-btn:hover {
             background: #2563EB;
@@ -1251,7 +1272,7 @@
                         </div>
                         <div class="info-content">
                             <h4>Service Area</h4>
-                            <p>Dallas Texas Metroplex</p>
+                            <p>Dallas, Texas</p>
                         </div>
                     </div>
 
