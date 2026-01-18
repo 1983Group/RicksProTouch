@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RicksProTouch - Premium Mobile Auto Detailing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo span:first-child {
+            color: #3B82F6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #3B82F6;
+        }
+
+        .book-btn {
+            background: #3B82F6;
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #2563EB;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=1600') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .auto {
+            color: #FCD34D;
+        }
+
+        .hero h1 .detailing {
+            color: #F59E0B;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #3B82F6;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #3B82F6;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: black;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-icon {
+            color: #FCD34D;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            color: #3B82F6;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        #about {
+            background: #f7fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #3B82F6;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .about-badge h3 {
+            font-size: 2rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stat-card-icon {
+            color: #3B82F6;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card h4 {
+            font-size: 2rem;
+            color: #1a202c;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        #services {
+            background: #f7fafc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .service-card.popular {
+            border: 2px solid #3B82F6;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3B82F6;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            background: #EBF5FF;
+            color: #3B82F6;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        .service-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: transparent;
+            color: #3B82F6;
+            border: 2px solid #3B82F6;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .service-btn:hover {
+            background: #3B82F6;
+            color: white;
+        }
+
+        .service-card.popular .service-btn {
+            background: #3B82F6;
+            color: white;
+        }
+
+        .service-card.popular .service-btn:hover {
+            background: #2563EB;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background: #f7fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 3rem;
+            color: #E5E7EB;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #E5E7EB;
+        }
+
+        .testimonial-info h4 {
+            color: #1a202c;
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #FCD34D;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: #4a5568;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a202c;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3B82F6;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: #2563EB;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1a202c;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-icon {
+            background: #EBF5FF;
+            color: #3B82F6;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-content h4 {
+            color: #1a202c;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-content p {
+            color: #666;
+        }
+
+        .mobile-service-box {
+            background: #3B82F6;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .mobile-service-box h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: #A0AEC0;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #A0AEC0;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-section ul li a:hover {
+            color: #3B82F6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #2D3748;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #3B82F6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2D3748;
+            color: #A0AEC0;
+        }
+
+        /* Package selector (matches existing form styling) */
+.package-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.package-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.package-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    background: #fff;
+}
+
+.package-card:hover {
+    border-color: #3B82F6;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+}
+
+.package-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.package-name {
+    font-weight: 700;
+    color: #1a202c;
+}
+
+.package-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1D4ED8;
+    background: #EBF5FF;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.package-desc {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.package-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+}
+
+.package-features li {
+    color: #4a5568;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.package-features li:before {
+    content: "✓";
+    color: #10B981;
+    font-weight: 800;
+}
+
+/* Selected state */
+.package-option input:checked + .package-card {
+    border: 2px solid #3B82F6;
+    box-shadow: 0 10px 22px rgba(59, 130, 246, 0.18);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <span>Ricks</span><span style="color: white;">ProTouch</span>
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('services')">Services</a></li>
+                <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('gallery')">Gallery</a></li>
+                <li><a onclick="scrollToSection('testimonials')">Reviews</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+                <li><a class="book-btn" onclick="scrollToSection('contact')"><i class="fas fa-phone"></i> Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>5-Star Mobile Detailing Service</span>
+            </div>
+            <h1>Premium Mobile<br><span class="auto">Auto</span> <span class="detailing">Detailing</span></h1>
+            <p>We bring the showroom shine to your driveway. Professional detailing services at your location, on your schedule.</p>
+            <div class="hero-buttons">
+                <a class="btn-primary" onclick="scrollToSection('contact')">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+                <a class="btn-secondary" onclick="scrollToSection('services')">View Services</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Fully Insured</h3>
+                    <p>100% Protected</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Same Day</h3>
+                    <p>Available</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <h3>500+ Reviews</h3>
+                    <p>5-Star Rated</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">ABOUT RICKSPROTOUCH</p>
+                <h2 class="section-title">Passion for Perfection</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=800" alt="Luxury Car">
+                    <div class="about-badge">
+                        <h3>10+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Passion for Perfection</h3>
+                    <p>At RicksProTouch, we believe every vehicle deserves to shine. Founded with a passion for automotive excellence, we've spent over a decade perfecting our craft and building relationships with car enthusiasts across the region.</p>
+                    <p>Our mobile detailing service brings professional-grade results directly to your door. Using only premium products and proven techniques, we transform your vehicle while you relax at home or work.</p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-calendar"></i></div>
+                            <h4>10+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-users"></i></div>
+                            <h4>5000+</h4>
+                            <p>Happy Clients</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-car"></i></div>
+                            <h4>500+</h4>
+                            <p>Cars Detailed</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-smile"></i></div>
+                            <h4>100%</h4>
+                            <p>Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">OUR SERVICES</p>
+                <h2 class="section-title">Premium Detailing Packages</h2>
+                <p class="section-subtitle">Choose from our carefully crafted packages designed to meet every need and budget.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car"></i></div>
+                    <h3>Exterior Detail</h3>
+                    <p>Complete exterior transformation including wax, polish, and premium tire care for a like-new feel.</p>
+                    <ul class="service-features">
+                        <li>Hand wash & dry</li>
+                        <li>Clay bar treatment</li>
+                        <li>Paint correction</li>
+                        <li>Wax protection</li>
+                        <li>Tire & trim dressing</li>
+                    </ul>
+                    <button class="service-btn" onclick="scrollToSection('contact')">Book Now</button>
+                </div>
+
+                <div class="service-card popular">
+                    <span class="popular-badge">Most Popular</span>
+                    <div class="service-icon"><i class="fas fa-chair"></i></div>
+                    <h3>Interior Detail</h3>
+                    <p>Deep cleaning and restoration of your vehicle's interior for a fresh, like-new feel.</p>
+                    <ul class="service-features">
+                        <li>Vacuum & steam clean</li>
+                        <li>Leather conditioning</li>
+                        <li>Dashboard protection</li>
+                        <li>Odor elimination</li>
+                        <li>Glass cleaning</li>
+                    </ul>
+                    <button class="service-btn" onclick="scrollToSection('contact')">Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Ceramic Coating</h3>
+                    <p>Long-lasting protection with professional-grade ceramic coating for ultimate shine and durability.</p>
+                    <ul class="service-features">
+                        <li>Paint decontamination</li>
+                        <li>Multi-stage polish</li>
+                        <li>Ceramic application</li>
+                        <li>2-5 year protection</li>
+                        <li>Hydrophobic finish</li>
+                    </ul>
+                    <button class="service-btn" onclick="scrollToSection('contact')">Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Full Detail Package</h3>
+                    <p>The complete treatment - interior and exterior detailing for the ultimate vehicle refresh.</p>
+                    <ul class="service-features">
+                        <li>Full exterior detail</li>
+                        <li>Full interior detail</li>
+                        <li>Engine bay cleaning</li>
+                        <li>Headlight restoration</li>
+                        <li>Premium protection</li>
+                    </ul>
+                    <button class="service-btn" onclick="scrollToSection('contact')">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">OUR WORK</p>
+                <h2 class="section-title">Transformations Gallery</h2>
+                <p class="section-subtitle">See the stunning before and after results of our professional detailing services.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600" alt="Car 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600" alt="Car 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600" alt="Car 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=600" alt="Car 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600" alt="Car 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=600" alt="Car 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">TESTIMONIALS</p>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>BMW Owner</p>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Absolutely incredible service! Rick transformed my BMW and made it look better than the day I bought it. The ceramic coating is amazing."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Thompson</h4>
+                            <p>Tesla Owner</p>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The convenience of mobile detailing is unmatched. Rick came to my office and by the end of the day, my Tesla was spotless. Highly recommend!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>James Chen</h4>
+                            <p>Porsche Owner</p>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Professional, punctual, and perfectionist. Rick's attention to detail is second to none. My Porsche has never looked better!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">CONTACT US</p>
+                <h2 class="section-title">Get Your Free Quote</h2>
+                <p class="section-subtitle">Ready to give your vehicle the care it deserves? Reach out today!</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+<form action="https://formspree.io/f/mwvvljpv" method="POST">
+    <div class="form-row">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email Address" autocomplete="email" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" required>
+    </div>
+
+    <div class="form-group">
+        <textarea name="message" placeholder="Tell us about your vehicle and what services you're interested in..." required></textarea>
+    </div>
+
+    <!-- Optional: nicer email subject in your inbox -->
+    <input type="hidden" name="_subject" value="New Quote Request - RicksProTouch">
+
+    <button type="submit" class="submit-btn">
+        <i class="fas fa-paper-plane"></i> Send Message
+    </button>
+
+    <div class="form-group">
+    <label style="display:block; font-weight:700; color:#1a202c; margin-bottom:0.5rem;">
+        Select a Package
+    </label>
+
+    <div class="package-grid">
+        <label class="package-option">
+            <input type="radio" name="package" value="Exterior Detail" required>
+            <div class="package-card">
+                <div class="package-top">
+                    <div class="package-name">Exterior Detail</div>
+                </div>
+                <div class="package-desc">Complete exterior transformation including wax, polish, and premium tire care for a like-new feel.</div>
+                <ul class="package-features">
+                    <li>Hand wash &amp; dry</li>
+                    <li>Clay bar treatment</li>
+                    <li>Paint correction</li>
+                    <li>Wax protection</li>
+                    <li>Tire &amp; trim dressing</li>
+                </ul>
+            </div>
+        </label>
+
+        <label class="package-option">
+            <input type="radio" name="package" value="Interior Detail">
+            <div class="package-card">
+                <div class="package-top">
+                    <div class="package-name">Interior Detail</div>
+                    <span class="package-badge">Most Popular</span>
+                </div>
+                <div class="package-desc">Deep cleaning and restoration of your vehicle's interior for a fresh, like-new feel.</div>
+                <ul class="package-features">
+                    <li>Vacuum &amp; steam clean</li>
+                    <li>Leather conditioning</li>
+                    <li>Dashboard protection</li>
+                    <li>Odor elimination</li>
+                    <li>Glass cleaning</li>
+                </ul>
+            </div>
+        </label>
+
+        <label class="package-option">
+            <input type="radio" name="package" value="Ceramic Coating">
+            <div class="package-card">
+                <div class="package-top">
+                    <div class="package-name">Ceramic Coating</div>
+                </div>
+                <div class="package-desc">Long-lasting protection with professional-grade ceramic coating for ultimate shine and durability.</div>
+                <ul class="package-features">
+                    <li>Paint decontamination</li>
+                    <li>Multi-stage polish</li>
+                    <li>Ceramic application</li>
+                    <li>2-5 year protection</li>
+                    <li>Hydrophobic finish</li>
+                </ul>
+            </div>
+        </label>
+
+        <label class="package-option">
+            <input type="radio" name="package" value="Full Detail Package">
+            <div class="package-card">
+                <div class="package-top">
+                    <div class="package-name">Full Detail Package</div>
+                </div>
+                <div class="package-desc">The complete treatment - interior and exterior detailing for the ultimate vehicle refresh.</div>
+                <ul class="package-features">
+                    <li>Full exterior detail</li>
+                    <li>Full interior detail</li>
+                    <li>Engine bay cleaning</li>
+                    <li>Headlight restoration</li>
+                    <li>Premium protection</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+</div>
+
+</form>
+
+                </div>
+
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Phone</h4>
+                            <p>(972)-658-4227</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p>info@ricksprotouch.detailing.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Service Area</h4>
+                            <p>Dallas Texas Metroplex</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Hours</h4>
+                            <p>Mon-Sat: 7AM - 7PM</p>
+                        </div>
+                    </div>
+
+                    <div class="mobile-service-box">
+                        <h4><i class="fas fa-car"></i> Mobile Service Available!</h4>
+                        <p>We come to you! Whether you're at home, work, or anywhere in our service area, we'll bring the detail shop to your location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><span style="color: #3B82F6;">Ricks</span>ProTouch</h3>
+                <p>Premium mobile auto detailing services. We bring the showroom shine directly to your doorstep.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a onclick="scrollToSection('services')">Services</a></li>
+                    <li><a onclick="scrollToSection('about')">About Us</a></li>
+                    <li><a onclick="scrollToSection('gallery')">Gallery</a></li>
+                    <li><a onclick="scrollToSection('contact')">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a>Exterior Detail</a></li>
+                    <li><a>Interior Detail</a></li>
+                    <li><a>Ceramic Coating</a></li>
+                    <li><a>Full Detail Package</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>(555) 123-4567</li>
+                    <li>info@ricksprotouch.com</li>
+                    <li>Metro Area & Surrounding</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RicksProTouch. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = element.offsetTop - navHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(26, 32, 44, 0.98)';
+            } else {
+                nav.style.background = 'rgba(26, 32, 44, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
